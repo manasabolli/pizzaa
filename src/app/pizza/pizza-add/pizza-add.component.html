@@ -1,0 +1,45 @@
+<div class="card">
+    <div class="card-body">
+      <form [formGroup]="angForm" novalidate>
+
+        <div class="form-group">
+          <label class="col-md-3">PizzaType </label>
+          <input type="text" class="form-control" formControlName="PizzaType" #PizzaType >
+        </div>
+        <div *ngIf="angForm.controls['PizzaType'].invalid && (angForm.controls['PizzaType'].dirty || angForm.controls['PizzaType'].touched)" class="alert alert-danger">
+          <div *ngIf="angForm.controls['PizzaType'].errors.required">
+                PizzaType  is required.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-3">PizzaName </label>
+          <input type="text" class="form-control" formControlName="PizzaName" #PizzaName >
+        </div>
+        <div *ngIf="angForm.controls['PizzaName'].invalid && (angForm.controls['PizzaName'].dirty || angForm.controls['PizzaName'].touched)" class="alert alert-danger">
+          <div *ngIf="angForm.controls['PizzaName'].errors.required">
+            Pizza Name  is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-3">PizzaCost</label>
+          <input type="text" class="form-control" formControlName="PizzaCost" #PizzaCost >
+        </div>
+        <div *ngIf="angForm.controls['PizzaCost'].invalid && (angForm.controls['PizzaCost'].dirty || angForm.controls['PizzaCost'].touched)" class="alert alert-danger">
+          <div *ngIf="angForm.controls['PizzaCost'].errors.required">
+            Pizza Cost is required
+          </div>
+        </div>
+        <div class="form-group">
+                <button (click)="addPizza(PizzaType.value, PizzaName.value,PizzaCost.value)"
+                    [disabled]="angForm.pristine || angForm.invalid" 
+                    class="btn btn-primary">
+                    Add 
+                 </button>
+                 
+            </div>
+            <!--  -->
+
+      </form>
+    </div>
+  </div>
